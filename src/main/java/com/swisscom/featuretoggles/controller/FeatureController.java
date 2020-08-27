@@ -1,5 +1,6 @@
 package com.swisscom.featuretoggles.controller;
 
+import com.swisscom.featuretoggles.model.Customer;
 import com.swisscom.featuretoggles.model.CustomerFeature;
 import com.swisscom.featuretoggles.model.Feature;
 import com.swisscom.featuretoggles.service.FeatureService;
@@ -53,4 +54,13 @@ public class FeatureController {
     List<Feature> getUnassignedFeaturesByCustomerId(@ApiParam(value = "", required = true, example = "1") @PathVariable long id){
         return featureService.getUnassignedFeaturesByCustomerId(id);
     }
+
+    @ApiOperation(value = "Assign Feature to Customer")
+    @PostMapping(value = "/customers/{customerId}/features/{featureId}/assign")
+    CustomerFeature assignFeature(@ApiParam(required = true, example = "1") @PathVariable long customerId,
+                                  @ApiParam(required = true, example = "1") @PathVariable long featureId){
+        return featureService.assignFeature(customerId, featureId);
+    }
+
+
 }

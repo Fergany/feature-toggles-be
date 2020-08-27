@@ -25,7 +25,7 @@ public class CustomerController {
 
     @ApiOperation(value = "Create Customer")
     @PostMapping(value = "/customers")
-    Customer addFeature(@ApiParam(value = "Customer object store in database table") @RequestBody Customer customer) {
+    Customer add(@ApiParam(value = "Customer object store in database table") @RequestBody Customer customer) {
         return customerService.add(customer);
     }
 

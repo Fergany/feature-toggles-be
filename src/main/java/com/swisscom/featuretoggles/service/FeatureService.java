@@ -65,4 +65,16 @@ public class FeatureService {
                 });
         return featureRepository.findByIdNotIn(featuresId);
     }
+
+    public CustomerFeature assignFeature(long customerId, long featureId) {
+        Customer customer = customerRepository.findById(customerId)
+                .orElseThrow(() -> new RuntimeException("Customer " + customerId + " Not found"));
+
+        Feature feature = featureRepository.findById(featureId)
+                .orElseThrow(() -> new RuntimeException("Feature " + featureId + " Not found"));
+
+        CustomerFeature customerFeature = new CustomerFeature(customer, feature, true);
+
+        return customerFeatureRepository.save(customerFeature);
+    }
 }

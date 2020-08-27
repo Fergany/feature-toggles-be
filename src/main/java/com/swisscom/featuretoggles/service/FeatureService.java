@@ -77,4 +77,9 @@ public class FeatureService {
 
         return customerFeatureRepository.save(customerFeature);
     }
+
+    public Feature getFeatureById(Long id) {
+        return featureRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Feature " + id + " not found"));
+    }
 }

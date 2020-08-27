@@ -35,8 +35,12 @@ public class FeatureTogglesApplication {
 			Feature feature1 = new Feature("Feature 1", "show_warning", LocalDate.now().plusDays(10), "show warning screen", false);
 			Feature feature2 = new Feature("Feature 2", "switch_on", LocalDate.now().plusDays(5), "switch on light", true);
 			Feature feature3 = new Feature("Feature 3", "switch_off", LocalDate.now().minusDays(3), "switch off light", false);
+			Feature feature4 = new Feature("Feature 4", "start process", LocalDate.now().plusDays(7), "start process desc", false);
+			Feature feature5 = new Feature("Feature 5", "kill process", LocalDate.now().plusDays(12), "kill process desc", false);
+			Feature feature6 = new Feature("Feature 6", "ng init", LocalDate.now().plusDays(5), "ng init desc", true);
+			Feature feature7 = new Feature("Feature 7", "git clone", LocalDate.now().minusDays(10), "git clone", false);
 
-			featureRepository.saveAll(Arrays.asList(feature1, feature2, feature3));
+			featureRepository.saveAll(Arrays.asList(feature1, feature2, feature3, feature4, feature5, feature6, feature7));
 
 			CustomerFeature customerFeature1 = new CustomerFeature(customer1, feature1, true);
 			CustomerFeature customerFeature2 = new CustomerFeature(customer1, feature2, true);

@@ -29,6 +29,12 @@ public class FeatureController {
         return featureService.add(feature);
     }
 
+    @ApiOperation(value = "Get Feature")
+    @GetMapping(value = "/features/{id}")
+    Feature addFeature(@ApiParam(value = "Feature Id") @PathVariable Long id){
+        return featureService.getFeatureById(id);
+    }
+
     @ApiOperation(value = "Update Feature")
     @PutMapping(value = "/features/{id}")
     Feature edit(
